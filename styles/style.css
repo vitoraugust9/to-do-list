@@ -1,0 +1,197 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::-webkit-scrollbar {
+  width: 14px;
+}
+
+body::-webkit-scrollbar-track {
+  background: #fff;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: black;
+  border-radius: 20px;
+  border: 3px solid black;
+}
+
+.logoName {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  width: 100vw;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: #fff;
+  background-color: #1B1C1E;
+}
+
+
+#userMenu{
+  display: flex;
+  width: 15vw;
+  align-items: center;
+  justify-content: center;
+}
+.logoImage{
+  width: 45px;
+  height: 52px;
+}
+#userName{
+  font-size: medium;
+  margin: 15px;
+}
+
+.userAvatar {
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+}
+
+
+input {
+  border-radius: 8px;
+  outline: none;
+  padding: 0.8rem;
+  width: 25rem;
+  border-color: black;
+}
+
+input::placeholder {
+  color: #000;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 4vh 10vw;
+}
+
+.inputs {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2vh;
+}
+
+.done {
+  text-decoration-line: line-through;
+}
+
+.addTask {
+  border-radius: 8px;
+  padding: 0.6rem;
+  width: 8vw;
+  font-weight: bold;
+  font-size: large;
+  background-color: transparent;
+}
+
+.listTasks {
+  margin: 0;
+  margin-top: 6vh;
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.showTask{
+  width: 90%;
+  border: none;
+  margin: 1rem;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgray;
+  border-radius: 8px;
+  font-size: large;
+}
+
+.imageDone {
+  width: 30px;
+  height: 30px;
+}
+
+.imageTrash {
+  width: 30px;
+  height: 25px;
+}
+
+.textTask {
+  max-width: 70%;
+  margin-left: 1vw;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.actionTasksButtons {
+  display: flex;
+  gap: 10px;
+}
+
+.imageEdit {
+  width: 30px;
+  height: 25px;
+}
+
+.deleteButton,
+.buttonDone{
+  border-radius: 8px;
+  padding: 15px;
+  transition-duration: 0.6s;
+  border: none;
+  background-color: transparent;
+}
+.showTask{
+  border-radius: 8px;
+  transition-duration: 0.6s;
+}
+
+.showTask:hover {
+  transform: scale(1.005);
+}
+
+.deleteButton:hover,
+.buttonDone:hover{
+  transform: scale(1.2);
+}
+
+.notElements {
+  text-align: center;
+  font-size: large;
+}
+
+.addTask:hover{
+  transform: scale(0.9);
+  transition-duration: 1s;
+}

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      class="favicon"
+      rel="icon"
+      type="image/svg+xml"
+      href="/public/list-task-white.svg"
+    />
+    <script src="./script/index.js" defer></script>
+    <script src="./script/themes.js"></script>
+    <link rel="stylesheet" href="./styles/style.css" />
+    <link rel="stylesheet" href="./styles/showModal.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Vitor Augusto" />
+    <title>To-Do List</title>
+  </head>
+  <body>
+    <header>
+      <div class="logoName">
+        <img src="./public/list-task-white.svg" class="logoImage" />
+        <h1>To-Do List</h1>
+      </div>
+      <div id="userMenu">
+        <h3 id="userName">Vitor Augusto</h3>
+        <img src="./public/profile.jpeg" class="userAvatar" />
+      </div>
+    </header>
+    <main class="container">
+      <div class="inputs">
+        <form onsubmit="event.preventDefault(); addTask();">
+          <input
+            type="text"
+            placeholder="Digite uma nova tarefa"
+            id="inputTask"
+          />
+          <button class="addTask" type="submit">Adicionar</button>
+        </form>
+        <input
+          type="text"
+          placeholder="Pesquisar tarefa"
+          id="searchInput"
+          oninput="searchTasks()"
+        />
+      </div>
+      <div class="tasks">
+        <ul id="listTasks" class="listTasks"></ul>
+      </div>
+    </main>
+
+    <dialog id="showTaskDialog">
+      <div class="dialog-header">
+        <button id="closeModal">X</button>
+      </div>
+      <div class="dialog-content">
+        <form method="dialog">
+          <textarea
+            type="text"
+            id="editTaskInput"
+            placeholder="Digite o novo texto da tarefa..."
+          ></textarea>
+          <div class="button-container">
+            <button type="submit" id="saveText">Salvar</button>
+            <button type="button" id="cancelEditTask">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <footer>
+      <img src="/public/github.svg" alt="">
+    </footer>
+  </body>
+</html>
