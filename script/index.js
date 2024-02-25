@@ -4,6 +4,8 @@ let tasks = [];
 let search = document.getElementById("searchInput");
 let taskIdCounter = 0;
 let bodyBlur = document.querySelector(".container");
+let headerBlur = document.querySelector(".blurHeader");
+let footerBlur = document.querySelector(".blurFooter");
 
 if (listTasks.getElementsByTagName("li").length === 0) {
   let notElements = document.createElement("p");
@@ -12,9 +14,21 @@ if (listTasks.getElementsByTagName("li").length === 0) {
   listTasks.appendChild(notElements);
 }
 
+function setBlur() {
+  bodyBlur.setAttribute("id", "blur");
+  headerBlur.setAttribute("id", "blur");
+  footerBlur.setAttribute("id", "blur");
+}
+
+function removeBlur() {
+  bodyBlur.removeAttribute('id', 'blur')
+  headerBlur.removeAttribute('id', 'blur')
+  footerBlur.removeAttribute('id', 'blur')
+}
+
 function addTask() {
   if (inputTask.value.trim() !== "") {
-    let taskText = inputTask.value.trim().replace(/\s/g, "&nbsp;");
+    let taskText = inputTask.value.trim();
     let taskId = "task_" + taskIdCounter++;
     tasks.push({ id: taskId, text: taskText });
 
@@ -187,7 +201,6 @@ function showTaskModal(taskId) {
 
     let showTaskInput = document.getElementById("editTaskInput");
     showTaskInput.textContent = task.text;
-    bodyBlur.setAttribute("id", "blur");
 
     let saveTextButton = showTaskDialog.querySelector("#saveText");
     saveTextButton.addEventListener("click", function (event) {
@@ -198,22 +211,23 @@ function showTaskModal(taskId) {
         task.text = newText;
         taskElement.querySelector(".textTask").textContent = newText;
       }
-      bodyBlur.removeAttribute("id", "blur");
+      removeBlur();
       showTaskDialog.close();
     });
 
     let closeshowTaskButton = document.getElementById("closeModal");
     closeshowTaskButton.addEventListener("click", function (event) {
-      bodyBlur.removeAttribute("id", "blur");
+      removeBlur();
       showTaskDialog.close();
     });
 
     let cancelshowTaskButton = document.getElementById("cancelEditTask");
     cancelshowTaskButton.addEventListener("click", function (event) {
-      bodyBlur.removeAttribute("id", "blur");
       showTaskDialog.close();
+      removeBlur();
     });
 
     showTaskDialog.showModal();
+    setBlur();
   }
 }

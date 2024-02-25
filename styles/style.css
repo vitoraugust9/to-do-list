@@ -9,6 +9,7 @@ body {
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #CCCCCC;
 }
 
 body::-webkit-scrollbar {
@@ -38,21 +39,20 @@ header {
   align-items: center;
   padding: 1rem;
   color: #fff;
-  background-color: #1B1C1E;
+  background-color: #1b1c1e;
 }
 
-
-#userMenu{
+#userMenu {
   display: flex;
   width: 15vw;
   align-items: center;
   justify-content: center;
 }
-.logoImage{
+.logoImage {
   width: 45px;
   height: 52px;
 }
-#userName{
+#userName {
   font-size: medium;
   margin: 15px;
 }
@@ -62,7 +62,6 @@ header {
   width: 55px;
   height: 55px;
 }
-
 
 input {
   border-radius: 8px;
@@ -89,6 +88,7 @@ h1 {
   justify-content: center;
   flex-direction: column;
   margin: 4vh 10vw;
+  
 }
 
 .inputs {
@@ -108,7 +108,7 @@ h1 {
   width: 8vw;
   font-weight: bold;
   font-size: large;
-  background-color: transparent;
+  background-color: #fff;
 }
 
 .listTasks {
@@ -121,7 +121,7 @@ h1 {
   flex-direction: column;
 }
 
-.showTask{
+.showTask {
   width: 90%;
   border: none;
   margin: 1rem;
@@ -131,7 +131,7 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: lightgray;
+  background-color: #A9A9A9;
   border-radius: 8px;
   font-size: large;
 }
@@ -165,14 +165,14 @@ h1 {
 }
 
 .deleteButton,
-.buttonDone{
+.buttonDone {
   border-radius: 8px;
   padding: 15px;
   transition-duration: 0.6s;
   border: none;
   background-color: transparent;
 }
-.showTask{
+.showTask {
   border-radius: 8px;
   transition-duration: 0.6s;
 }
@@ -182,7 +182,7 @@ h1 {
 }
 
 .deleteButton:hover,
-.buttonDone:hover{
+.buttonDone:hover {
   transform: scale(1.2);
 }
 
@@ -191,7 +191,31 @@ h1 {
   font-size: large;
 }
 
-.addTask:hover{
+.addTask:hover {
   transform: scale(0.9);
   transition-duration: 1s;
+}
+
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #1b1c1e;
+  color: #fff;
+  font-size: x-large;
+  bottom: 0;
+  gap: 3rem;
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  height: 8vh;
+}
+
+footer img {
+  width: 4vw;
+  height: 4vh;
+}
+
+footer a {
+  text-decoration: none;
 }
