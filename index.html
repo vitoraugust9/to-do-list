@@ -8,10 +8,12 @@
       type="image/svg+xml"
       href="/public/list-task-white.svg"
     />
+    <script src="./script/modalUserInfo.js" defer></script>
     <script src="./script/index.js" defer></script>
     <script src="./script/themes.js"></script>
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/showTaskModal.css" />
+    <link rel="stylesheet" href="/styles/showInformationUserModal.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Vitor Augusto" />
     <title>To-Do List</title>
@@ -67,8 +69,29 @@
         </form>
       </div>
     </dialog>
-    <dialog id="userData" open="">
-      oi
+    <dialog id="userData">
+      <div id="formName">
+        <p>Dados de Usuário</p>
+      </div>
+      <form id="userInformations" action="" method="post">
+        <div id="inputName">
+          <input type="text" autocomplete="off" autocapitalize="on" name="userInputName" id="userInputName" required />
+          <label for="userInputName" id="labelUserInput">
+            <span id="labelName">Digite seu nome</span>
+          </label>
+        </div>
+        <div id="inputImages">
+          <div id="imagePreview">
+            <img src="/public/placeholder.svg" id="placeholderImage" />
+          </div>
+          <label>Faça upload de sua foto de usuário:</label>
+          <input type="file" name="imagesInput" id="imagesInput" />
+          <p id="errorParagraph"></p>
+        </div>
+        <div id="saveDataContainer">
+          <button type="submit" id="saveData">Salvar</button>
+        </div>
+      </form>
     </dialog>
     <footer class="blurFooter">
       <p>&copy; Vitor Augusto</p>
