@@ -1,6 +1,7 @@
 let bodyBlur = document.querySelector(".container");
 let headerBlur = document.querySelector(".blurHeader");
 let footerBlur = document.querySelector(".blurFooter");
+let userInputName = document.getElementById("userInputName");
 
 function setBlur() {
   bodyBlur.setAttribute("id", "blur");
@@ -14,10 +15,17 @@ function removeBlur() {
   footerBlur.removeAttribute("id", "blur");
 }
 
+userInputName.addEventListener("focus", () => {
+  userInputName.style.borderTop = "none";
+});
+
+userInputName.addEventListener("blur", () => {
+  userInputName.style.borderTop = "solid";
+});
+
 document.addEventListener("DOMContentLoaded", (event) => {
   let userInformationsForm = document.getElementById("userInformations");
   let showUserInformationsModal = document.getElementById("userData");
-  
 
   showUserInformationsModal.showModal();
   setBlur();
@@ -30,6 +38,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
     const inputName = document.querySelector("#userInputName");
     const userName = document.querySelector("#userName");
     const inputImage = document.getElementById("imagesInput");
+
 
     const userData = {
       name: inputName.value,

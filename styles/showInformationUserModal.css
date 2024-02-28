@@ -22,6 +22,7 @@
   font-weight: bold;
   padding: 0.4rem;
   width: 12rem;
+  margin-top: 1rem;
 }
 
 #inputName {
@@ -57,15 +58,12 @@
 }
 
 #userInputName {
-  font-size: 2rem;
-  width: 80%;
-  padding: 20px 5px 5px;
+  font-size: 1.3rem;
+  width: 100%;
+  padding: 20px 12px 10px;
   border: none;
   border-radius: 4px;
-  border-bottom: solid;
-  border-left: solid;
-  border-right: solid;
-  border-top: solid;
+  border: solid;
   margin-bottom: 1.5rem;
   margin-top: 1rem;
 }
@@ -73,7 +71,7 @@
 #labelName {
   position: absolute;
   left: 30px;
-  top: 100px;
+  top: 95px;
   transition: all 0.3 ease;
   font-weight: 500;
 }
@@ -95,6 +93,7 @@
   font-size: 14px;
   color: #000;
   font-weight: 600;
+  transition-duration: 1s;
 }
 
 #userInputName:focus + #labelUserInput #labelName::after,
@@ -102,6 +101,39 @@
   transform: translateX(0%);
 }
 
-#userInputName:focus {
-  border-top: none;
+#userInputName:not(:focus):not(:valid) + #labelUserInput #labelName {
+  transition-duration: 1s;
+}
+.file-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.file-upload input[type="file"] {
+  font-weight: bold;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.file-upload label {
+  display: inline-block;
+  font-size: large;
+}
+
+#imagesInput {
+  padding: 0;
+}
+
+.file-upload input[type="file"]::-webkit-file-upload-button {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: transparent;
+  font-weight: bold;
+  margin-right: 1rem;
+  cursor: pointer;
+}
+.file-upload input[type="file"]::-webkit-file-upload-button:hover {
+  transform: scale(0.9);
+  transition: 1s;
 }

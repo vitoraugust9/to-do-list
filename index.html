@@ -75,7 +75,14 @@
       </div>
       <form id="userInformations" action="" method="post">
         <div id="inputName">
-          <input type="text" autocomplete="off" autocapitalize="on" name="userInputName" id="userInputName" required />
+          <input
+            type="text"
+            autocomplete="off"
+            autocapitalize="words"
+            name="userInputName"
+            id="userInputName"
+            required
+          />
           <label for="userInputName" id="labelUserInput">
             <span id="labelName">Digite seu nome</span>
           </label>
@@ -84,9 +91,12 @@
           <div id="imagePreview">
             <img src="/public/placeholder.svg" id="placeholderImage" />
           </div>
-          <label>Faça upload de sua foto de usuário:</label>
-          <input type="file" name="imagesInput" id="imagesInput" />
-          <p id="errorParagraph"></p>
+          <div class="file-upload">
+            <label id="imageInput">Faça upload de sua foto de usuário</label>
+            <div class="upload-archives">
+            <input type="file" name="imagesInput" id="imagesInput" />
+            </div>
+          </div>
         </div>
         <div id="saveDataContainer">
           <button type="submit" id="saveData">Salvar</button>
