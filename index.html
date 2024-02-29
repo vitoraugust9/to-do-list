@@ -8,9 +8,11 @@
       type="image/svg+xml"
       href="/public/list-task-white.svg"
     />
-    <script src="./script/modalUserInfo.js" defer></script>
     <script src="./script/index.js" defer></script>
     <script src="./script/themes.js"></script>
+
+    <script src="./script/tasksAdministration.js"def></script>
+
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/showTaskModal.css" />
     <link rel="stylesheet" href="/styles/showInformationUserModal.css" />
@@ -25,13 +27,13 @@
         <h1>To-Do List</h1>
       </div>
       <div id="userMenu">
-        <h3 id="userName">Vitor Augusto</h3>
+        <h3 id="userName"></h3>
         <img src="./public/profile.jpeg" class="userAvatar" />
       </div>
     </header>
     <main class="container">
       <div class="inputs">
-        <form onsubmit="event.preventDefault(); addTask();">
+        <form id='taskSubmit'>
           <input
             type="text"
             placeholder="Digite uma nova tarefa"
@@ -43,7 +45,6 @@
           type="text"
           placeholder="Pesquisar tarefa"
           id="searchInput"
-          oninput="searchTasks()"
         />
       </div>
       <div class="tasks">
@@ -74,27 +75,34 @@
         <p>Dados de Usuário</p>
       </div>
       <form id="userInformations" action="" method="post">
-        <div id="inputName">
-          <input
-            type="text"
-            autocomplete="off"
-            autocapitalize="words"
-            name="userInputName"
-            id="userInputName"
-            required
-          />
-          <label for="userInputName" id="labelUserInput">
-            <span id="labelName">Digite seu nome</span>
-          </label>
+        <div id="inputNameContent">
+          <div id="inputName">
+            <input
+              type="text"
+              autocomplete="off"
+              maxlength="20"
+              name="userInputName"
+              id="userInputName"
+              required
+            />
+            <label for="userInputName" id="labelUserInput">
+              <span id="labelName">Digite seu nome</span>
+            </label>
+          </div>
+          <div id="errorMessageContent"></div>
         </div>
         <div id="inputImages">
           <div id="imagePreview">
-            <img src="/public/placeholder.svg" id="placeholderImage" />
+            <img
+              accept="image/jpeg, image/jpg, image/png"
+              src="/public/placeholder.svg"
+              id="placeholderImage"
+            />
           </div>
           <div class="file-upload">
             <label id="imageInput">Faça upload de sua foto de usuário</label>
             <div class="upload-archives">
-            <input type="file" name="imagesInput" id="imagesInput" />
+              <input type="file" name="imagesInput" id="imagesInput" />
             </div>
           </div>
         </div>
@@ -106,13 +114,16 @@
     <footer class="blurFooter">
       <p>&copy; Vitor Augusto</p>
       <div class="logos">
-        <a href="https://github.com/vitoraugust9" target="">
+        <a href="https://github.com/vitoraugust9" target="_blank">
           <img src="/public/github.svg" alt="" srcset="" />
         </a>
-        <a href="https://www.linkedin.com/in/vitoraugustosilva/" target="">
+        <a
+          href="https://www.linkedin.com/in/vitoraugustosilva/"
+          target="_blank"
+        >
           <img src="/public/linkedin.svg" alt="" srcset="" />
         </a>
-        <a href="mailto:vitoraugustovitor8@gmail.com" target="">
+        <a href="mailto:vitoraugustovitor8@gmail.com" target="_blank">
           <img src="/public/envelope-at.svg" alt="" srcset="" />
         </a>
       </div>

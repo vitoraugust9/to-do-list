@@ -14,6 +14,15 @@
   justify-content: center;
 }
 
+#placeholderImage{
+  max-width: 100%;
+  max-height: 100%;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
 #saveData {
   border-color: transparent;
   border-radius: 8px;
@@ -28,6 +37,7 @@
 #inputName {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 #inputImages {
@@ -61,7 +71,6 @@
   font-size: 1.3rem;
   width: 100%;
   padding: 20px 12px 10px;
-  border: none;
   border-radius: 4px;
   border: solid;
   margin-bottom: 1.5rem;
@@ -136,4 +145,17 @@
 .file-upload input[type="file"]::-webkit-file-upload-button:hover {
   transform: scale(0.9);
   transition: 1s;
+}
+
+
+#inputNameContent{
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+
+#errorMessage{
+  color: red;
+  font-weight: 600;
+  padding-left: 1rem;
 }

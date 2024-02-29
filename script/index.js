@@ -1,18 +1,8 @@
-let inputTask = document.getElementById("inputTask");
-let listTasks = document.getElementById("listTasks");
-let tasks = [];
-let search = document.getElementById("searchInput");
-let taskIdCounter = 0;
 let bodyBlur = document.querySelector(".container");
 let headerBlur = document.querySelector(".blurHeader");
 let footerBlur = document.querySelector(".blurFooter");
-
-if (listTasks.getElementsByTagName("li").length === 0) {
-  let notElements = document.createElement("p");
-  notElements.setAttribute("class", "notElements");
-  notElements.textContent = "Não há tarefas!";
-  listTasks.appendChild(notElements);
-}
+let userInputName = document.getElementById("userInputName");
+let errorMessageContent = document.getElementById("errorMessageContent");
 
 function setBlur() {
   bodyBlur.setAttribute("id", "blur");
@@ -21,213 +11,100 @@ function setBlur() {
 }
 
 function removeBlur() {
-  bodyBlur.removeAttribute('id', 'blur')
-  headerBlur.removeAttribute('id', 'blur')
-  footerBlur.removeAttribute('id', 'blur')
+  bodyBlur.removeAttribute("id", "blur");
+  headerBlur.removeAttribute("id", "blur");
+  footerBlur.removeAttribute("id", "blur");
 }
 
-function addTask() {
-  if (inputTask.value.trim() !== "") {
-    let taskText = inputTask.value.trim();
-    let taskId = "task_" + taskIdCounter++;
-    tasks.push({ id: taskId, text: taskText });
+userInputName.addEventListener("focus", () => {
+  userInputName.style.borderTop = "none";
+});
 
-    let showTask = document.createElement("button");
-    showTask.setAttribute("class", "showTask");
-    showTask.addEventListener("click", (event) => {
-      showTaskModal(taskId);
+userInputName.addEventListener("blur", () => {
+  userInputName.style.borderTop = "solid";
+});
+
+userInputName.addEventListener("focusout", () => {
+  if (userInputName.value.length > 0) {
+    userInputName.style.borderTop = "none";
+  }
+});
+
+document
+  .getElementById("userInputName")
+  .addEventListener("input", function (event) {
+    let input = event.target;
+    input.value = input.value.replace(/(^|\s)\S/g, function (char) {
+      return char.toUpperCase();
     });
-    let task = document.createElement("li");
-    task.setAttribute("class", "task");
-    task.setAttribute("data-task-id", taskId);
+  });
+document.addEventListener("DOMContentLoaded", (event) => {
+  let userInformationsForm = document.getElementById("userInformations");
+  let showUserInformationsModal = document.getElementById("userData");
+  let userAvatarImage = document.querySelector(".userAvatar");
 
-    let textTask = document.createElement("div");
-    textTask.setAttribute("class", "textTask");
-    textTask.textContent = taskText;
+  showUserInformationsModal.showModal();
+  setBlur();
 
-    task.appendChild(textTask);
+  let saveUserDataButton = document.getElementById("saveData");
 
-    let containerButtons = document.createElement("div");
-    containerButtons.setAttribute("class", "actionTasksButtons");
+  saveUserDataButton.addEventListener("click", (event) => {
+    event.preventDefault();
 
-    let deleteButton = document.createElement("button");
-    deleteButton.setAttribute("class", "deleteButton");
-    deleteButton.addEventListener("click", function (event) {
-      event.stopPropagation();
-      removeTask(taskId);
-    });
-    let imageTrash = document.createElement("img");
-    imageTrash.src = "./public/trash.svg";
-    deleteButton.appendChild(imageTrash);
-    imageTrash.setAttribute("class", "imageTrash");
+    const inputName = document.querySelector("#userInputName");
+    const userName = document.querySelector("#userName");
+    const inputImage = document.getElementById("imagesInput");
 
-    let buttonDone = document.createElement("button");
-    buttonDone.setAttribute("class", "buttonDone");
-    buttonDone.addEventListener("click", function (event) {
-      event.stopPropagation();
-      taskDone(taskId);
-    });
-    let imageDone = document.createElement("img");
-    imageDone.src = "./public/check.svg";
-    buttonDone.appendChild(imageDone);
-    imageDone.setAttribute("class", "imageDone");
+    const userData = {
+      name: inputName.value,
+    };
 
-    containerButtons.appendChild(deleteButton);
-    containerButtons.appendChild(buttonDone);
+    const { name } = userData;
 
-    task.appendChild(containerButtons);
+    
 
-    let removeElement = document.querySelector(".notElements");
-    if (removeElement) {
-      removeElement.remove();
-    }
-    showTask.appendChild(task);
-    listTasks.appendChild(showTask);
-  }
-  inputTask.value = "";
+    userName.textContent = name;
 
-  if (listTasks.getElementsByTagName("li").length > 0) {
-    let removeElement = document.querySelector(".notElements");
-    if (removeElement) {
-      removeElement.remove();
-    }
-  }
-}
+    if (inputName.value.length === 0) {
+      let ErrorMessage = document.createElement("p");
+      ErrorMessage.setAttribute("id", "errorMessage");
 
-function removeTask(taskId) {
-  tasks = tasks.filter((task) => task.id !== taskId);
-  let taskElement = document.querySelector(`.task[data-task-id="${taskId}"]`);
-  if (taskElement) {
-    taskElement.remove();
-  }
-
-  if (listTasks.getElementsByTagName("li").length === 0) {
-    let notElements = document.createElement("p");
-    notElements.setAttribute("class", "notElements");
-    notElements.textContent = "Não há tarefas!";
-    listTasks.appendChild(notElements);
-  }
-}
-
-function taskDone(taskId) {
-  let task = tasks.find((task) => task.id === taskId);
-  if (task) {
-    let taskElement = document.querySelector(`.task[data-task-id="${taskId}"]`);
-    if (taskElement) {
-      taskElement.classList.toggle("done");
-    }
-  }
-}
-
-function searchTasks() {
-  let searchText = document.getElementById("searchInput").value.toLowerCase();
-  let filteredTasks = tasks.filter((task) =>
-    task.text.toLowerCase().includes(searchText)
-  );
-  listTasks.innerHTML = "";
-  if (filteredTasks.length > 0) {
-    filteredTasks.forEach((task) => {
-      let showTask = document.createElement("button");
-      showTask.setAttribute("class", "showTask");
-      showTask.addEventListener("click", (event) => {
-        showTaskModal(task.id);
-      });
-      let taskElement = document.createElement("li");
-      taskElement.setAttribute("class", "task");
-      taskElement.setAttribute("data-task-id", task.id);
-
-      let textTask = document.createElement("div");
-      textTask.setAttribute("class", "textTask");
-      textTask.textContent = task.text;
-
-      taskElement.appendChild(textTask);
-
-      let containerButtons = document.createElement("div");
-      containerButtons.setAttribute("class", "actionTasksButtons");
-
-      let deleteButton = document.createElement("button");
-      deleteButton.setAttribute("class", "deleteButton");
-      deleteButton.addEventListener("click", function (event) {
-        event.stopPropagation();
-        removeTask(task.id);
-      });
-      let imageTrash = document.createElement("img");
-      imageTrash.src = "./public/trash.svg";
-      deleteButton.appendChild(imageTrash);
-      imageTrash.setAttribute("class", "imageTrash");
-
-      let buttonDone = document.createElement("button");
-      buttonDone.setAttribute("class", "buttonDone");
-      buttonDone.addEventListener("click", function (event) {
-        event.stopPropagation();
-        taskDone(task.id);
-      });
-      let imageDone = document.createElement("img");
-      imageDone.src = "./public/check.svg";
-      buttonDone.appendChild(imageDone);
-
-      imageDone.setAttribute("class", "imageDone");
-
-      containerButtons.appendChild(deleteButton);
-      containerButtons.appendChild(buttonDone);
-
-      taskElement.appendChild(containerButtons);
-
-      showTask.appendChild(taskElement);
-
-      listTasks.appendChild(showTask);
-    });
-  } else if (searchText !== "") {
-    let notElements = document.createElement("p");
-    notElements.setAttribute("class", "notElements");
-    notElements.textContent = `Nenhuma tarefa relacionada a " ${searchText} " foi encontrada!`;
-    listTasks.appendChild(notElements);
-  } else {
-    if (tasks.length === 0) {
-      let notElements = document.createElement("p");
-      notElements.setAttribute("class", "notElements");
-      notElements.textContent = "Não há tarefas!";
-      listTasks.appendChild(notElements);
-    }
-  }
-}
-
-function showTaskModal(taskId) {
-  let task = tasks.find((task) => task.id === taskId);
-
-  if (task) {
-    let taskElement = document.querySelector(`.task[data-task-id="${taskId}"]`);
-    let showTaskDialog = document.getElementById("showTaskDialog");
-
-    let showTaskInput = document.getElementById("editTaskInput");
-    showTaskInput.textContent = task.text;
-
-    let saveTextButton = showTaskDialog.querySelector("#saveText");
-    saveTextButton.addEventListener("click", function (event) {
-      event.preventDefault();
-
-      let newText = showTaskInput.value.trim();
-      if (newText !== "") {
-        task.text = newText;
-        taskElement.querySelector(".textTask").textContent = newText;
+      ErrorMessage.textContent = "Digite um nome válido!";
+      if (!errorMessageContent.hasChildNodes(ErrorMessage)) {
+        errorMessageContent.appendChild(ErrorMessage);
       }
-      removeBlur();
-      showTaskDialog.close();
-    });
 
-    let closeshowTaskButton = document.getElementById("closeModal");
-    closeshowTaskButton.addEventListener("click", function (event) {
+      setTimeout(() => {
+        errorMessageContent.removeChild(ErrorMessage);
+      }, 1500);
+    }
+    if (inputName.value.length !== 0) {
       removeBlur();
-      showTaskDialog.close();
-    });
+      showUserInformationsModal.close();
+    }
+  });
 
-    let cancelshowTaskButton = document.getElementById("cancelEditTask");
-    cancelshowTaskButton.addEventListener("click", function (event) {
-      showTaskDialog.close();
-      removeBlur();
-    });
+  userInformationsForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+  });
+});
 
-    showTaskDialog.showModal();
-    setBlur();
+function previewImage(input) {
+  const file = input.files[0];
+  const imagePreview = document.getElementById("placeholderImage");
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const result = e.target.result;
+      imagePreview.src = result;
+    };
+
+    reader.readAsDataURL(file);
   }
 }
+
+document.getElementById("imagesInput").addEventListener("change", function () {
+  previewImage(this);
+});
