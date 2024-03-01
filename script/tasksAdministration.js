@@ -105,10 +105,10 @@ document.addEventListener("DOMContentLoaded", () => {
     tasks = tasks.filter((task) => task.id !== taskId);
     let taskElement = document.querySelector(`.task[data-task-id="${taskId}"]`);
     if (taskElement) {
-      taskElement.remove();
+      taskElement.parentElement.remove();
     }
-
-    if (listTasks.getElementsByTagName("li").length === 0) {
+  
+    if (listTasks.getElementsByTagName("button").length === 0) {
       let notElements = document.createElement("p");
       notElements.setAttribute("class", "notElements");
       notElements.textContent = "Não há tarefas!";
@@ -127,48 +127,57 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   }
-
   function showTaskModal(taskId) {
     let task = tasks.find((task) => task.id === taskId);
-
+  
     if (task) {
-      let taskElement = document.querySelector(
-        `.task[data-task-id="${taskId}"]`
-      );
       let showTaskDialog = document.getElementById("showTaskDialog");
-
+  
       let showTaskInput = document.getElementById("editTaskInput");
-      showTaskInput.textContent = task.text;
-
+      showTaskInput.value = task.text;
+  
       let saveTextButton = showTaskDialog.querySelector("#saveText");
-      saveTextButton.addEventListener("click", function (event) {
+      let closeshowTaskButton = document.getElementById("closeModal");
+      let cancelshowTaskButton = document.getElementById("cancelEditTask");
+  
+      saveTextButton.addEventListener("click", saveTaskText);
+      closeshowTaskButton.addEventListener("click", closeTaskModal);
+      cancelshowTaskButton.addEventListener("click", cancelEditTask);
+  
+      function saveTaskText(event) {
         event.preventDefault();
-
         let newText = showTaskInput.value.trim();
         if (newText !== "") {
           task.text = newText;
+          let taskElement = document.querySelector(`.task[data-task-id="${taskId}"]`);
           taskElement.querySelector(".textTask").textContent = newText;
         }
         removeBlur();
         showTaskDialog.close();
-      });
-
-      let closeshowTaskButton = document.getElementById("closeModal");
-      closeshowTaskButton.addEventListener("click", function (event) {
+      }
+  
+      function closeTaskModal(event) {
+        removeEventListeners();
         removeBlur();
         showTaskDialog.close();
-      });
-
-      let cancelshowTaskButton = document.getElementById("cancelEditTask");
-      cancelshowTaskButton.addEventListener("click", function (event) {
-        showTaskDialog.close();
-        removeBlur();
-      });
-
+      }
+  
+      function cancelEditTask(event) {
+        closeTaskModal(event);
+      }
+  
+      function removeEventListeners() {
+        saveTextButton.removeEventListener("click", saveTaskText);
+        closeshowTaskButton.removeEventListener("click", closeTaskModal);
+        cancelshowTaskButton.removeEventListener("click", cancelEditTask);
+      }
+  
       showTaskDialog.showModal();
       setBlur();
     }
   }
+  
+  
 
   search.addEventListener("input", () => {
     let searchText = document.getElementById("searchInput").value.toLowerCase();

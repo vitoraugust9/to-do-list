@@ -9,11 +9,11 @@ body {
   font-family: "Inter", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #CCCCCC;
+  background-color: #cccccc;
 }
 
 body::-webkit-scrollbar {
-  width: 14px;
+  width: 15px;
 }
 
 body::-webkit-scrollbar-track {
@@ -22,7 +22,6 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: black;
-  border-radius: 20px;
   border: 3px solid black;
 }
 
@@ -44,35 +43,40 @@ header {
 
 #userMenu {
   display: flex;
-  width: 15vw;
+  width: 20vw;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 }
+
 .logoImage {
-  width: 45px;
-  height: 52px;
+  width: 55px;
+  height: 62px;
 }
+
 #userName {
-  font-size: medium;
-  margin: 15px;
+  font-size: x-large;
+  margin: auto;
 }
 
 .userAvatar {
   border-radius: 50%;
-  width: 55px;
-  height: 55px;
+  width: 80px;
+  height: 80px;
 }
 
 input {
   border-radius: 8px;
   outline: none;
   padding: 0.8rem;
-  width: 25rem;
+  height: 3vh;
+  width: 20vw;
   border-color: black;
+  font-size: x-large;
 }
 
 input::placeholder {
   color: #000;
+  font-size: x-large;
 }
 
 ul {
@@ -88,14 +92,13 @@ h1 {
   justify-content: center;
   flex-direction: column;
   margin: 4vh 10vw;
-  
 }
 
 .inputs {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 2vh;
+  margin-top: 2rem;
 }
 
 .done {
@@ -104,64 +107,65 @@ h1 {
 
 .addTask {
   border-radius: 8px;
-  padding: 0.6rem;
+  padding: 0.8rem;
+  height: 5.5vh;
   width: 8vw;
   font-weight: bold;
-  font-size: large;
+  font-size: x-large;
   background-color: #fff;
 }
 
 .listTasks {
   margin: 0;
-  margin-top: 6vh;
   width: 80vw;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
+  margin-top: 3rem;
+  margin-bottom: 5rem;
 }
 
 .showTask {
   width: 90%;
   border: none;
-  margin: 1rem;
+  margin: 2rem;
+  height: 10vh;
+  border-radius: 8px;
+  transition-duration: 0.6s;
 }
-
 .task {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #A9A9A9;
+  background-color: #a9a9a9;
   border-radius: 8px;
   font-size: large;
+  height: 10vh;
 }
 
 .imageDone {
-  width: 30px;
-  height: 30px;
+  width: 50px;
+  height: 50px;
 }
 
 .imageTrash {
-  width: 30px;
-  height: 25px;
+  width: 50px;
+  height: 45px;
 }
 
 .textTask {
   max-width: 70%;
-  margin-left: 1vw;
+  margin-left: 3rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  font-size: x-large;
 }
 
 .actionTasksButtons {
   display: flex;
   gap: 10px;
-}
-
-.imageEdit {
-  width: 30px;
-  height: 25px;
 }
 
 .deleteButton,
@@ -171,10 +175,6 @@ h1 {
   transition-duration: 0.6s;
   border: none;
   background-color: transparent;
-}
-.showTask {
-  border-radius: 8px;
-  transition-duration: 0.6s;
 }
 
 .showTask:hover {
@@ -188,7 +188,7 @@ h1 {
 
 .notElements {
   text-align: center;
-  font-size: large;
+  font-size: xx-large;
 }
 
 .addTask:hover {

@@ -11,7 +11,7 @@
     <script src="./script/index.js" defer></script>
     <script src="./script/themes.js"></script>
 
-    <script src="./script/tasksAdministration.js"def></script>
+    <script src="./script/tasksAdministration.js" def></script>
 
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/showTaskModal.css" />
@@ -33,7 +33,7 @@
     </header>
     <main class="container">
       <div class="inputs">
-        <form id='taskSubmit'>
+        <form id="taskSubmit">
           <input
             type="text"
             placeholder="Digite uma nova tarefa"
@@ -41,11 +41,7 @@
           />
           <button class="addTask" type="submit">Adicionar</button>
         </form>
-        <input
-          type="text"
-          placeholder="Pesquisar tarefa"
-          id="searchInput"
-        />
+        <input type="text" placeholder="Pesquisar tarefa" id="searchInput" />
       </div>
       <div class="tasks">
         <ul id="listTasks" class="listTasks"></ul>
@@ -100,8 +96,14 @@
             />
           </div>
           <div class="file-upload">
-            <label id="imageInput">Faça upload de sua foto de usuário</label>
+            <label id="imageInput">Faça upload de uma foto de usuário</label>
             <div class="upload-archives">
+              <button
+                id="uploadButton"
+                onclick="event.preventDefault(); document.getElementById('imagesInput').click()"
+              >
+                Escolher Arquivo
+              </button>
               <input type="file" name="imagesInput" id="imagesInput" />
             </div>
           </div>
@@ -124,7 +126,7 @@
           <img src="/public/linkedin.svg" alt="" srcset="" />
         </a>
         <a href="mailto:vitoraugustovitor8@gmail.com" target="_blank">
-          <img src="/public/envelope-at.svg" alt="" srcset="" />
+          <img src="/public/envelope-at.svg" />
         </a>
       </div>
     </footer>

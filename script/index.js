@@ -3,6 +3,7 @@ let headerBlur = document.querySelector(".blurHeader");
 let footerBlur = document.querySelector(".blurFooter");
 let userInputName = document.getElementById("userInputName");
 let errorMessageContent = document.getElementById("errorMessageContent");
+let uploadArchiveText = document.getElementById("imagesInput");
 
 function setBlur() {
   bodyBlur.setAttribute("id", "blur");
@@ -42,7 +43,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let userInformationsForm = document.getElementById("userInformations");
   let showUserInformationsModal = document.getElementById("userData");
   let userAvatarImage = document.querySelector(".userAvatar");
-
   showUserInformationsModal.showModal();
   setBlur();
 
@@ -61,8 +61,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     const { name } = userData;
 
-    
-
     userName.textContent = name;
 
     if (inputName.value.length === 0) {
@@ -70,15 +68,22 @@ document.addEventListener("DOMContentLoaded", (event) => {
       ErrorMessage.setAttribute("id", "errorMessage");
 
       ErrorMessage.textContent = "Digite um nome válido!";
-      if (!errorMessageContent.hasChildNodes(ErrorMessage)) {
+      if (
+        !errorMessageContent.hasChildNodes(ErrorMessage) &&
+        inputName.value.length === 0
+      ) {
         errorMessageContent.appendChild(ErrorMessage);
+        inputName.style.borderColor = "#ff0000";
       }
 
       setTimeout(() => {
         errorMessageContent.removeChild(ErrorMessage);
+        inputName.style.borderColor = "";
       }, 1500);
     }
-    if (inputName.value.length !== 0) {
+    if (inputName.value !== "") {
+      inputName.style.borderColor = "";
+
       removeBlur();
       showUserInformationsModal.close();
     }
