@@ -58,12 +58,6 @@ header {
   margin: auto;
 }
 
-.userAvatar {
-  border-radius: 50%;
-  width: 80px;
-  height: 80px;
-}
-
 input {
   border-radius: 8px;
   outline: none;
@@ -108,7 +102,7 @@ h1 {
 .addTask {
   border-radius: 8px;
   padding: 0.8rem;
-  height: 5.5vh;
+  height: 6.2vh;
   width: 8vw;
   font-weight: bold;
   font-size: x-large;
