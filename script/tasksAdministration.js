@@ -137,12 +137,13 @@ document.addEventListener("DOMContentLoaded", () => {
       showTaskInput.value = task.text;
   
       let saveTextButton = showTaskDialog.querySelector("#saveText");
-      let closeshowTaskButton = document.getElementById("closeModal");
-      let cancelshowTaskButton = document.getElementById("cancelEditTask");
+      let closeTaskButton = document.getElementById("closeModal");
+      let cancelEditTaskButton = document.getElementById("cancelEditTask");
   
+      // Adiciona ouvintes de evento aos botões do modal
       saveTextButton.addEventListener("click", saveTaskText);
-      closeshowTaskButton.addEventListener("click", closeTaskModal);
-      cancelshowTaskButton.addEventListener("click", cancelEditTask);
+      closeTaskButton.addEventListener("click", closeTaskModal);
+      cancelEditTaskButton.addEventListener("click", cancelEditTask);
   
       function saveTaskText(event) {
         event.preventDefault();
@@ -153,29 +154,38 @@ document.addEventListener("DOMContentLoaded", () => {
           taskElement.querySelector(".textTask").textContent = newText;
         }
         removeBlur();
+        // Fecha o modal após salvar
         showTaskDialog.close();
+        // Remove os ouvintes de evento após salvar
+        removeEventListeners();
       }
   
       function closeTaskModal(event) {
         removeEventListeners();
         removeBlur();
+        // Fecha o modal ao clicar no botão fechar
         showTaskDialog.close();
       }
   
       function cancelEditTask(event) {
+        // Fecha o modal ao clicar no botão cancelar
         closeTaskModal(event);
       }
   
       function removeEventListeners() {
+        // Remove todos os ouvintes de evento após salvar ou fechar o modal
         saveTextButton.removeEventListener("click", saveTaskText);
-        closeshowTaskButton.removeEventListener("click", closeTaskModal);
-        cancelshowTaskButton.removeEventListener("click", cancelEditTask);
+        closeTaskButton.removeEventListener("click", closeTaskModal);
+        cancelEditTaskButton.removeEventListener("click", cancelEditTask);
       }
   
+      // Exibe o modal
       showTaskDialog.showModal();
+      // Aplica o efeito de desfoque ao fundo
       setBlur();
     }
   }
+  
   
   
 
@@ -184,9 +194,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let filteredTasks = tasks.filter((task) =>
       task.text.toLowerCase().includes(searchText)
     );
-    listTasks.innerHTML = "";
+    listTasks.innerHTML = ""; // Limpa a lista de tarefas antes de adicionar tarefas filtradas
     if (filteredTasks.length > 0) {
       filteredTasks.forEach((task) => {
+        // Adiciona as tarefas filtradas à lista de tarefas
         let showTask = document.createElement("button");
         showTask.setAttribute("class", "showTask");
         showTask.addEventListener("click", (event) => {
@@ -195,16 +206,16 @@ document.addEventListener("DOMContentLoaded", () => {
         let taskElement = document.createElement("li");
         taskElement.setAttribute("class", "task");
         taskElement.setAttribute("data-task-id", task.id);
-
+  
         let textTask = document.createElement("div");
         textTask.setAttribute("class", "textTask");
         textTask.textContent = task.text;
-
+  
         taskElement.appendChild(textTask);
-
+  
         let containerButtons = document.createElement("div");
         containerButtons.setAttribute("class", "actionTasksButtons");
-
+  
         let deleteButton = document.createElement("button");
         deleteButton.setAttribute("class", "deleteButton");
         deleteButton.addEventListener("click", function (event) {
@@ -215,7 +226,7 @@ document.addEventListener("DOMContentLoaded", () => {
         imageTrash.src = "./public/trash.svg";
         deleteButton.appendChild(imageTrash);
         imageTrash.setAttribute("class", "imageTrash");
-
+  
         let buttonDone = document.createElement("button");
         buttonDone.setAttribute("class", "buttonDone");
         buttonDone.addEventListener("click", function (event) {
@@ -225,16 +236,15 @@ document.addEventListener("DOMContentLoaded", () => {
         let imageDone = document.createElement("img");
         imageDone.src = "./public/check.svg";
         buttonDone.appendChild(imageDone);
-
         imageDone.setAttribute("class", "imageDone");
-
+  
         containerButtons.appendChild(deleteButton);
         containerButtons.appendChild(buttonDone);
-
+  
         taskElement.appendChild(containerButtons);
-
+  
         showTask.appendChild(taskElement);
-
+  
         listTasks.appendChild(showTask);
       });
     } else if (searchText !== "") {
@@ -251,5 +261,6 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     }
   });
+  
 
 })
