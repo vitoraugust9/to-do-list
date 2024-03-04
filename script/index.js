@@ -42,7 +42,6 @@ document
 document.addEventListener("DOMContentLoaded", (event) => {
   let userInformationsForm = document.getElementById("userInformations");
   let showUserInformationsModal = document.getElementById("userData");
-  let userAvatarImage = document.querySelector(".userAvatar");
   showUserInformationsModal.showModal();
   setBlur();
 
@@ -53,13 +52,12 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     const inputName = document.querySelector("#userInputName");
     const userName = document.querySelector("#userName");
-    const inputImage = document.getElementById("imagesInput");
 
     const userData = {
       name: inputName.value,
     };
 
-    const { name } = userData;
+    const { name, } = userData;
 
     userName.textContent = name;
 
@@ -92,24 +90,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
   userInformationsForm.addEventListener("submit", (event) => {
     event.preventDefault();
   });
-});
-
-function previewImage(input) {
-  const file = input.files[0];
-  const imagePreview = document.getElementById("placeholderImage");
-
-  if (file) {
-    const reader = new FileReader();
-
-    reader.onload = function (e) {
-      const result = e.target.result;
-      imagePreview.src = result;
-    };
-
-    reader.readAsDataURL(file);
-  }
-}
-
-document.getElementById("imagesInput").addEventListener("change", function () {
-  previewImage(this);
 });

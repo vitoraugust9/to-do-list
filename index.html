@@ -10,8 +10,7 @@
     />
     <script src="./script/index.js" defer></script>
     <script src="./script/themes.js"></script>
-
-    <script src="./script/tasksAdministration.js" def></script>
+    <script src="./script/tasksAdministration.js" defer></script>
 
     <link rel="stylesheet" href="./styles/style.css" />
     <link rel="stylesheet" href="./styles/showTaskModal.css" />
@@ -28,7 +27,6 @@
       </div>
       <div id="userMenu">
         <h3 id="userName"></h3>
-        <img src="./public/profile.jpeg" class="userAvatar" />
       </div>
     </header>
     <main class="container">
@@ -86,27 +84,6 @@
             </label>
           </div>
           <div id="errorMessageContent"></div>
-        </div>
-        <div id="inputImages">
-          <div id="imagePreview">
-            <img
-              accept="image/jpeg, image/jpg, image/png"
-              src="/public/placeholder.svg"
-              id="placeholderImage"
-            />
-          </div>
-          <div class="file-upload">
-            <label id="imageInput">Faça upload de uma foto de usuário</label>
-            <div class="upload-archives">
-              <button
-                id="uploadButton"
-                onclick="event.preventDefault(); document.getElementById('imagesInput').click()"
-              >
-                Escolher Arquivo
-              </button>
-              <input type="file" name="imagesInput" id="imagesInput" />
-            </div>
-          </div>
         </div>
         <div id="saveDataContainer">
           <button type="submit" id="saveData">Salvar</button>
