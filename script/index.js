@@ -4,6 +4,7 @@ let footerBlur = document.querySelector(".blurFooter");
 let userInputName = document.getElementById("userInputName");
 let errorMessageContent = document.getElementById("errorMessageContent");
 let uploadArchiveText = document.getElementById("imagesInput");
+const welcomeModal = document.getElementById("welcomeModal");
 
 function setBlur() {
   bodyBlur.setAttribute("id", "blur");
@@ -39,35 +40,51 @@ document
       return char.toUpperCase();
     });
   });
-  document.addEventListener("DOMContentLoaded", (event) => {
-    let userInformationsForm = document.getElementById("userInformations");
-    let showUserInformationsModal = document.getElementById("userData");
-    let userNameStored = localStorage.getItem('userName') || '';
+document.addEventListener("DOMContentLoaded", (event) => {
+  let userInformationsForm = document.getElementById("userInformations");
+  let showUserInformationsModal = document.getElementById("userData");
+  let userNameStored = localStorage.getItem("userName") || "";
 
-    if (userNameStored.trim() === '') {
-      showUserInformationsModal.showModal();
-      setBlur();
-  
+  if (userNameStored.trim() !== "") {
+    let welcomeMessage = document.getElementById("welcomeMessage");
+    welcomeMessage.textContent = `Seja bem-vindo, ${userNameStored}`;
+
+    let buttonConfirm = document.getElementById("buttonConfirm");
+    setBlur();
+    welcomeModal.showModal();
+
+    buttonConfirm.addEventListener("click", (event) => {
+      event.preventDefault();
+      const userNameDisplay = document.querySelector("#userName");
+      userNameDisplay.textContent = userNameStored;
+
+      removeBlur();
+      welcomeModal.close();
+    });
+  } else {
+    showUserInformationsModal.showModal();
+    setBlur();
+
     let saveUserDataButton = document.getElementById("saveData");
-  
+
     saveUserDataButton.addEventListener("click", (event) => {
       const inputName = document.querySelector("#userInputName");
       const userName = document.querySelector("#userName");
-  
+
       const userData = {
         name: inputName.value,
       };
-  
-      const { name, } = userData;
-  
+
+      const { name } = userData;
+
       userName.textContent = name;
-  
-      localStorage.setItem('userName', name)
-  
+
+      localStorage.setItem("userName", name);
+
       if (inputName.value.length === 0) {
         let ErrorMessage = document.createElement("p");
         ErrorMessage.setAttribute("id", "errorMessage");
-  
+
         ErrorMessage.textContent = "Digite um nome válido!";
         if (
           !errorMessageContent.hasChildNodes(ErrorMessage) &&
@@ -76,7 +93,7 @@ document
           errorMessageContent.appendChild(ErrorMessage);
           inputName.style.borderColor = "#ff0000";
         }
-  
+
         setTimeout(() => {
           errorMessageContent.removeChild(ErrorMessage);
           inputName.style.borderColor = "";
@@ -84,20 +101,14 @@ document
       }
       if (inputName.value !== "") {
         inputName.style.borderColor = "";
-  
+
         removeBlur();
         showUserInformationsModal.close();
       }
     });
-  
+
     userInformationsForm.addEventListener("submit", (event) => {
       event.preventDefault();
     });
-  }else {
-    
-
-    const userNameDisplay = document.querySelector("#userName");
-    userNameDisplay.textContent = userNameStored;
   }
-  
 });

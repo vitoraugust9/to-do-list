@@ -45,7 +45,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     }
   }
-  
 
   function addTaskToList(taskId, taskText, status) {
     let showTask = document.createElement("button");
@@ -149,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  updateNoTasksMessage(); // Chamada inicial para garantir que a mensagem de "Não há tarefas" seja mostrada corretamente.
+  updateNoTasksMessage();
 
   function showTaskModal(taskId) {
     let task = tasks.find((task) => task.id === taskId);
@@ -164,7 +163,6 @@ document.addEventListener("DOMContentLoaded", () => {
       let closeTaskButton = document.getElementById("closeModal");
       let cancelEditTaskButton = document.getElementById("cancelEditTask");
 
-      // Função modificada para salvar o texto editado
       function saveTaskText(event) {
         event.preventDefault();
         let newText = showTaskInput.value.trim();
@@ -176,21 +174,21 @@ document.addEventListener("DOMContentLoaded", () => {
           if (taskElement) {
             taskElement.textContent = newText;
           }
-          saveTasksToLocalStorage(); // Salva as mudanças no localStorage
+          saveTasksToLocalStorage();
         }
         removeBlur();
-        showTaskDialog.close(); // Fecha o modal após salvar
+        showTaskDialog.close();
         removeEventListeners();
       }
 
       function closeTaskModal(event) {
         removeEventListeners();
         removeBlur();
-        showTaskDialog.close(); // Fecha o modal ao clicar no botão fechar
+        showTaskDialog.close();
       }
 
       function cancelEditTask(event) {
-        closeTaskModal(event); // Fecha o modal ao clicar no botão cancelar
+        closeTaskModal(event);
       }
 
       function removeEventListeners() {
@@ -203,8 +201,8 @@ document.addEventListener("DOMContentLoaded", () => {
       closeTaskButton.addEventListener("click", closeTaskModal);
       cancelEditTaskButton.addEventListener("click", cancelEditTask);
 
-      showTaskDialog.showModal(); // Exibe o modal
-      setBlur(); // Aplica o efeito de desfoque ao fundo
+      showTaskDialog.showModal();
+      setBlur();
     }
   }
 
@@ -213,10 +211,9 @@ document.addEventListener("DOMContentLoaded", () => {
     let filteredTasks = tasks.filter((task) =>
       task.text.toLowerCase().includes(searchText)
     );
-    listTasks.innerHTML = ""; // Limpa a lista de tarefas antes de adicionar tarefas filtradas
+    listTasks.innerHTML = "";
     if (filteredTasks.length > 0) {
       filteredTasks.forEach((task) => {
-        // Adiciona as tarefas filtradas à lista de tarefas
         let showTask = document.createElement("button");
         showTask.setAttribute("class", "showTask");
         showTask.addEventListener("click", (event) => {

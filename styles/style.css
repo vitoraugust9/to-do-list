@@ -10,6 +10,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #cccccc;
+
 }
 
 body::-webkit-scrollbar {
@@ -42,9 +43,10 @@ header {
   background-color: #1b1c1e;
 }
 
+
 #userMenu {
   display: flex;
-  width: 20vw;
+  width: 50vw;
   align-items: center;
   justify-content: end;
 }
@@ -66,8 +68,13 @@ input {
   padding: 0.8rem;
   height: 3vh;
   width: 20vw;
-  border-color: black;
+  border-color: transparent;
   font-size: x-large;
+  
+}
+
+input:focus{
+  border-color: #000 ;
 }
 
 input::placeholder {
@@ -104,11 +111,11 @@ h1 {
 .addTask {
   border-radius: 8px;
   padding: 0.8rem;
-  height: 6.2vh;
-  width: 8vw;
   font-weight: bold;
   font-size: x-large;
   background-color: #fff;
+  border-color: transparent;
+  margin-left: 0.5em;
 }
 
 .listTasks {
@@ -190,6 +197,7 @@ h1 {
 .addTask:hover {
   transform: scale(0.9);
   transition-duration: 1s;
+  border-color: #000;
 }
 
 footer {
@@ -199,9 +207,7 @@ footer {
   background-color: #1b1c1e;
   color: #fff;
   font-size: x-large;
-  bottom: 0;
   gap: 3rem;
-  position: fixed;
   width: 100%;
   text-align: center;
   height: 8vh;
