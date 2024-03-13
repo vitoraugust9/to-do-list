@@ -2,8 +2,8 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 40vw;
-  height: 20vh;
+  width: 20vw;
+  height: 25vh;
   transform: translate(-50%, -50%);
   background-color: #a9a9a9;
   padding: 1.5em;
@@ -24,6 +24,7 @@
   margin-top: 3em;
 }
 
+
 #buttonConfirm {
   padding-left: 3.5em;
   padding-right: 3.5em;
@@ -36,4 +37,24 @@
   font-size: large;
   background-color: #ccc;
 }
+
+
+
+
+#welcomeModal::-webkit-scrollbar {
+  width: 4px;
+  border-radius: 8px;
+}
+
+#welcomeModal::-webkit-scrollbar-track {
+  border-radius: 8px;
+}
+
+#welcomeModal::-webkit-scrollbar-thumb {
+  background-color: black;
+  border: 3px solid black;
+  border-radius: 8px;
+}
+
+
 

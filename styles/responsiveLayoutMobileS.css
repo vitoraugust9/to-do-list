@@ -1,0 +1,119 @@
+@media screen and (width >=17.5em) and (width <= 20em) {
+  #welcomeModal {
+    width: 75vw;
+    height: 33vh;
+    padding: 1em;
+  }
+  #welcomeMessage {
+    font-size: medium;
+    text-align: center;
+  }
+  #textConfirm {
+    font-size: medium;
+    text-align: center;
+  }
+  #confirm {
+    margin-top: 1.3em;
+  }
+  .logoImage {
+    width: 2.5em;
+    height: 2.5em;
+  }
+  h1 {
+    display: none;
+  }
+  #userName {
+    font-size: medium;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 7em;
+  }
+  #userName:hover {
+    overflow: visible;
+    width: 10em;
+  }
+  .container {
+    margin-top: 1em;
+  }
+  #taskSubmit {
+    display: flex;
+    flex-direction: row;
+  }
+  #inputTask {
+    width: 10.05em;
+    font-size: small;
+  }
+  .addTask {
+    font-size: small;
+    width: 6.2em;
+    padding: 0.4rem;
+  }
+  .addTask:hover {
+    transform: scale(1);
+    border: none;
+  }
+
+  .inputs {
+    flex-direction: column;
+    gap: 2em;
+  }
+
+  #inputTask::placeholder,
+  #searchInput::placeholder {
+    font-size: small;
+  }
+  #searchInput{
+    width: 10em;
+    font-size: small;
+  }
+  .notElements {
+    font-size: large;
+    word-wrap: break-word;
+    width: 75vw;
+  }
+  #userMenu {
+    width: 40em;
+  }
+
+  footer img {
+    width: 3.5em;
+    height: 1.5em;
+  }
+  #labelName {
+    top: 106px;
+    left: 40px;
+  }
+  #userData {
+    width: 75vw;
+  }
+  footer p {
+    display: none;
+  }
+  footer{
+    height: 9vh;
+  }
+  #userInputName{
+    font-size: medium;
+  }
+
+  .deleteButton img,
+  .buttonDone img{
+    width: 2em;
+    height: 2em;
+  }
+
+  #editTaskInput{
+    font-size: medium;
+  }
+  #saveText,
+  #cancelEditTask{
+    font-size: small;
+    width: 78em;
+  }
+  .textTask{
+    font-size: medium;
+    margin-left: 2em;
+  }
+
+}

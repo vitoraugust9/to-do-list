@@ -29,15 +29,14 @@ footer {
 
 body::-webkit-scrollbar {
   width: 15px;
-}
+  
 
-body::-webkit-scrollbar-track {
-  background: #fff;
 }
 
 body::-webkit-scrollbar-thumb {
   background-color: black;
   border: 3px solid black;
+  border-radius: 8px;
 }
 
 .logoName {
@@ -60,7 +59,6 @@ header {
 
 #userMenu {
   display: flex;
-  width: 50vw;
   align-items: center;
   justify-content: end;
 }
@@ -234,4 +232,9 @@ footer img {
 
 footer a {
   text-decoration: none;
+  display: flex;
+}
+
+.logos{
+  display: flex;
 }

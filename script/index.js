@@ -51,6 +51,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
     let buttonConfirm = document.getElementById("buttonConfirm");
     setBlur();
+
+   
+
+    
+    
     welcomeModal.showModal();
 
     buttonConfirm.addEventListener("click", (event) => {

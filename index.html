@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="./styles/showTaskModal.css" />
     <link rel="stylesheet" href="./styles/welcomeModal.css" />
     <link rel="stylesheet" href="/styles/showInformationUserModal.css" />
-    <link rel="stylesheet" href="./styles/responsiveLayout.css">
+    <link rel="stylesheet" href="./styles/responsiveLayoutMobileS.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Vitor Augusto" />
     <title>To-Do List</title>
@@ -41,7 +41,7 @@
           />
           <button class="addTask" type="submit">Adicionar</button>
         </form>
-        <input type="text" placeholder="Pesquisar tarefa" id="searchInput" />
+        <input type="text" placeholder="Filtrar tarefas" id="searchInput" />
       </div>
       <div class="tasks">
         <ul id="listTasks" class="listTasks"></ul>
@@ -67,17 +67,19 @@
       </div>
     </dialog>
     <dialog id="welcomeModal">
-      <div id="titleContainer">
-        <h2 id="welcomeMessage"></h2>
-      </div>
-      <div id="confirm">
-        <p id="textConfirm">
-          Clique no botão abaixo para seguir usando sua lista de tarefas
-        </p>
-        <div id="buttonContainer">
-          <button id="buttonConfirm">Continuar</button>
+      
+        <div id="titleContainer">
+          <h2 id="welcomeMessage"></h2>
         </div>
-      </div>
+        <div id="confirm">
+          <p id="textConfirm">
+            Clique no botão abaixo para seguir usando sua lista de tarefas
+          </p>
+          <div id="buttonContainer">
+            <button id="buttonConfirm">Continuar</button>
+          </div>
+        </div>
+           
     </dialog>
     <dialog id="userData">
       <div id="formName">

@@ -107,7 +107,6 @@
 
 #showTaskDialog::-webkit-scrollbar-track,
 #editTaskInput::-webkit-scrollbar-track {
-  background: #fff;
   margin-top: 35px;
 }
 
