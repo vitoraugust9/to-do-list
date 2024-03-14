@@ -76,6 +76,7 @@
 #blur {
   filter: blur(2px);
   backface-visibility: visible;
+  overflow: hidden;
 }
 .dialog-content {
   flex-grow: 1;

@@ -10,13 +10,31 @@ function setBlur() {
   bodyBlur.setAttribute("id", "blur");
   headerBlur.setAttribute("id", "blur");
   footerBlur.setAttribute("id", "blur");
+
+  bodyBlur.setAttribute("disabled", true);
+  headerBlur.setAttribute("disabled", true);
+  footerBlur.setAttribute("disabled", true);
+
+
+  document.body.style.overflow = 'hidden';
 }
+
+welcomeModal.style.outline = 'none'
 
 function removeBlur() {
   bodyBlur.removeAttribute("id", "blur");
   headerBlur.removeAttribute("id", "blur");
   footerBlur.removeAttribute("id", "blur");
+
+  bodyBlur.removeAttribute("disabled");
+  headerBlur.removeAttribute("disabled");
+  footerBlur.removeAttribute("disabled");
+
+
+  document.body.style.overflow = '';
+  document.body.style.height = '';
 }
+
 
 userInputName.addEventListener("focus", () => {
   userInputName.style.borderTop = "none";
@@ -52,10 +70,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
     let buttonConfirm = document.getElementById("buttonConfirm");
     setBlur();
 
-   
-
-    
-    
     welcomeModal.showModal();
 
     buttonConfirm.addEventListener("click", (event) => {

@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ) + 1
       : 0;
   let search = document.getElementById("searchInput");
-  let bodyBlur = document.querySelector(".container");
-  let headerBlur = document.querySelector(".blurHeader");
-  let footerBlur = document.querySelector(".blurFooter");
 
   function updateNoTasksMessage() {
     if (listTasks.getElementsByTagName("button").length === 0) {

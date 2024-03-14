@@ -36,7 +36,6 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: black;
   border: 3px solid black;
-  border-radius: 8px;
 }
 
 .logoName {
