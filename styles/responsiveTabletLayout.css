@@ -1,0 +1,126 @@
+@media screen and (min-width: 37.5625em) and (max-width: 48em) {
+  #welcomeModal {
+    width: 90vw;
+    height: 25vh;
+    padding: 1em;
+  }
+  #welcomeMessage,
+  #textConfirm {
+    font-size: x-large;
+    text-align: center;
+  }
+  #confirm {
+    margin-top: 1.3em;
+  }
+  .logoImage {
+    width: 4.5em;
+    height: 4.5em;
+  }
+  h1 {
+    display: none;
+  }
+  #userName {
+    font-size: xx-large;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    text-align: end;
+    width: 8em;
+  }
+  #userName:hover {
+    overflow: visible;
+    width: 11em;
+    text-align: end;
+  }
+  .container {
+    margin-top: 1.2em;
+  }
+  #taskSubmit {
+    display: flex;
+    flex-direction: row;
+  }
+  #inputTask {
+    width: 60vw;
+    font-size: x-large;
+  }
+  .addTask {
+    font-size: x-large;
+    width: 30vw;
+    padding: 0.4rem;
+  }
+  .addTask:hover {
+    transform: scale(1);
+    border: none;
+  }
+
+  .inputs {
+    flex-direction: column;
+    gap: 1.5em;
+  }
+
+  #inputTask::placeholder,
+  #searchInput::placeholder {
+    font-size: x-large;
+  }
+  #searchInput {
+    width: 50vw;
+    font-size: x-large;
+  }
+  .notElements {
+    font-size: x-large;
+    word-wrap: break-word;
+    width: 75vw;
+  }
+  #userMenu {
+    width: 40em;
+  }
+
+  footer img {
+    width: 5em;
+    height: 2.25em;
+  }
+  #labelName {
+    font-size: x-large;
+    top: 105px;
+    left: 40px;
+  }
+  #userInputName:focus + #labelUserInput #labelName,
+  #userInputName:valid + #labelUserInput #labelName {
+    font-size: 1.5em;
+  }
+  #userData {
+    width: 75vw;
+  }
+  footer p {
+    display: none;
+  }
+  footer {
+    height: 9vh;
+  }
+  #userInputName {
+    font-size: xx-large;
+  }
+
+  .deleteButton img,
+  .buttonDone img {
+    width: 3.5em;
+    height: 3.5em;
+  }
+
+  #editTaskInput {
+    font-size: xx-large;
+  }
+  #editTaskInput::placeholder {
+    font-size: xx-large;
+  }
+
+  #saveText,
+  #cancelEditTask {
+    font-size: x-large;
+    width: 78em;
+  }
+  .textTask {
+    font-size: x-large;
+    margin-left: 1.2em;
+  }
+}

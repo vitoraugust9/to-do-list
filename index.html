@@ -16,15 +16,19 @@
     <link rel="stylesheet" href="./styles/showTaskModal.css" />
     <link rel="stylesheet" href="./styles/welcomeModal.css" />
     <link rel="stylesheet" href="/styles/showInformationUserModal.css" />
+
     <link rel="stylesheet" href="./styles/responsiveLayoutMobileS.css" />
     <link rel="stylesheet" href="./styles/responsiveMobileM.css" />
     <link rel="stylesheet" href="./styles/responsiveLayoutMobileL.css" />
+    <link rel="stylesheet" href="./styles/responsiveLayoutMobileXL.css" />
+    <link rel="stylesheet" href="./styles/responsiveTabletLayout.css" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="Vitor Augusto" />
     <title>To-Do List</title>
   </head>
   <body>
-    <header class="blurHeader">
+    <header class="blurHeader" role="header">
       <div class="logoName">
         <img src="./public/list-task-white.svg" class="logoImage" />
         <h1>To-Do List</h1>
@@ -50,7 +54,7 @@
       </div>
     </main>
 
-    <dialog id="showTaskDialog">
+    <dialog id="showTaskDialog" aria-modal="true" role="dialog">
       <div class="dialog-header">
         <button id="closeModal">X</button>
       </div>
@@ -68,7 +72,7 @@
         </form>
       </div>
     </dialog>
-    <dialog id="welcomeModal">
+    <dialog id="welcomeModal" aria-modal="true" role="dialog">
       <div id="titleContainer">
         <h2 id="welcomeMessage"></h2>
       </div>
@@ -81,7 +85,7 @@
         </div>
       </div>
     </dialog>
-    <dialog id="userData">
+    <dialog id="userData" aria-modal="true" role="dialog">
       <div id="formName">
         <p>Dados de Usuário</p>
       </div>
@@ -107,20 +111,20 @@
         </div>
       </form>
     </dialog>
-    <footer class="blurFooter">
+    <footer class="blurFooter" role="contentinfo">
       <p>&copy; Vitor Augusto</p>
       <div class="logos">
         <a href="https://github.com/vitoraugust9" target="_blank">
-          <img src="/public/github.svg" alt="" srcset="" />
+          <img src="/public/github.svg" alt="Perfil de Vitor Augusto no GitHub" />
         </a>
         <a
           href="https://www.linkedin.com/in/vitoraugustosilva/"
           target="_blank"
         >
-          <img src="/public/linkedin.svg" alt="" srcset="" />
+          <img src="/public/linkedin.svg" alt="Perfil de Vitor Augusto no Linkedin" />
         </a>
         <a href="mailto:vitoraugustovitor8@gmail.com" target="_blank">
-          <img src="/public/envelope-at.svg" />
+          <img src="/public/envelope-at.svg" alt="Enviar E-mail para Vitor Augusto"/>
         </a>
       </div>
     </footer>

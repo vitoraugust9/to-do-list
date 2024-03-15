@@ -6,6 +6,8 @@ let errorMessageContent = document.getElementById("errorMessageContent");
 let uploadArchiveText = document.getElementById("imagesInput");
 const welcomeModal = document.getElementById("welcomeModal");
 
+
+
 function setBlur() {
   bodyBlur.setAttribute("id", "blur");
   headerBlur.setAttribute("id", "blur");
@@ -16,6 +18,13 @@ function setBlur() {
   footerBlur.setAttribute("disabled", true);
 
   document.body.style.overflow = "hidden";
+
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') { 
+      e.preventDefault();
+    }
+  });
 }
 
 welcomeModal.style.outline = "none";
@@ -31,6 +40,8 @@ function removeBlur() {
 
   document.body.style.overflow = "";
   document.body.style.height = "";
+
+
 }
 
 userInputName.addEventListener("focus", () => {
@@ -60,6 +71,8 @@ document.addEventListener("DOMContentLoaded", (event) => {
   let showUserInformationsModal = document.getElementById("userData");
   let userNameStored = localStorage.getItem("userName") || "";
 
+
+  
   if (userNameStored.trim() !== "") {
     let welcomeMessage = document.getElementById("welcomeMessage");
     welcomeMessage.textContent = `Seja bem-vindo, ${userNameStored}`;

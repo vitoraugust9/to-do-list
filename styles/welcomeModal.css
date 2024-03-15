@@ -2,26 +2,27 @@
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 20vw;
-  height: 26vh;
+  width: 95vw;
+  height: 27vh;
   transform: translate(-50%, -50%);
   background-color: #a9a9a9;
   padding: 1.5em;
   border-color: transparent;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
   
 }
 
 #textConfirm {
-  font-size: large;
+  font-size: x-large;
 }
 
 #confirm {
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 2.3rem;
+  gap: 4rem;
   margin-top: 3em;
 }
 
@@ -35,7 +36,7 @@
   outline: none;
   border: none;
   font-weight: bold;
-  font-size: large;
+  font-size: x-large;
   background-color: #ccc;
 }
 
