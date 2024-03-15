@@ -15,11 +15,10 @@ function setBlur() {
   headerBlur.setAttribute("disabled", true);
   footerBlur.setAttribute("disabled", true);
 
-
-  document.body.style.overflow = 'hidden';
+  document.body.style.overflow = "hidden";
 }
 
-welcomeModal.style.outline = 'none'
+welcomeModal.style.outline = "none";
 
 function removeBlur() {
   bodyBlur.removeAttribute("id", "blur");
@@ -30,11 +29,9 @@ function removeBlur() {
   headerBlur.removeAttribute("disabled");
   footerBlur.removeAttribute("disabled");
 
-
-  document.body.style.overflow = '';
-  document.body.style.height = '';
+  document.body.style.overflow = "";
+  document.body.style.height = "";
 }
-
 
 userInputName.addEventListener("focus", () => {
   userInputName.style.borderTop = "none";
@@ -100,7 +97,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
       localStorage.setItem("userName", name);
 
-      if (inputName.value.length === 0) {
+      if (inputName.value.trim() === "") {
         let ErrorMessage = document.createElement("p");
         ErrorMessage.setAttribute("id", "errorMessage");
 
@@ -111,6 +108,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ) {
           errorMessageContent.appendChild(ErrorMessage);
           inputName.style.borderColor = "#ff0000";
+          inputName.style.borderTopColor = "#ff0000";
         }
 
         setTimeout(() => {

@@ -1,0 +1,123 @@
+@media screen and (min-width: 23.8125em) and (max-width: 26.5625em){
+    #welcomeModal {
+        width: 85vw;
+        height: 23vh;
+        padding: 1em;
+      }
+      #welcomeMessage,
+      #textConfirm {
+        font-size: large;
+        text-align: center;
+        width: 86vw;
+      }
+      #confirm {
+        margin-top: 1.3em;
+      }
+      .logoImage {
+        width: 3em;
+        height: 3em;
+      }
+      h1 {
+        display: none;
+      }
+      #userName {
+        font-size: x-large;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        text-align: end;
+        width: 8em;
+      }
+      #userName:hover {
+        overflow: visible;
+        width: 11em;
+        text-align: end;
+      }
+      .container {
+        margin-top: 1em;
+      }
+      #taskSubmit {
+        display: flex;
+        flex-direction: row;
+      }
+      #inputTask {
+        width: 52vw;
+        font-size: large;
+      }
+      .addTask {
+        font-size: large;
+        width: 30vw;
+        padding: 0.4rem;
+      }
+      .addTask:hover {
+        transform: scale(1);
+        border: none;
+      }   
+      
+      .inputs {
+        flex-direction: column;
+        gap: 1.5em;
+      }
+    
+      #inputTask::placeholder,
+      #searchInput::placeholder {
+        font-size: large;
+      }
+      #searchInput {
+        width: 10em;
+        font-size: large;
+      }
+      .notElements {
+        font-size: large;
+        word-wrap: break-word;
+        width: 75vw;
+      }
+      #userMenu {
+        width: 40em;
+      }
+    
+      footer img {
+        width: 4em;
+        height: 1.75em;
+      }
+      #labelName {
+        top: 108px;
+        left: 40px;
+      }
+      #userData {
+        width: 75vw;
+      }
+      footer p {
+        display: none;
+      }
+      footer {
+        height: 9vh;
+      }
+      #userInputName {
+        font-size: x-large;
+      }
+    
+      .deleteButton img,
+      .buttonDone img {
+        width: 2.5em;
+        height: 2.5em;
+      }    
+      
+    
+      #editTaskInput {
+        font-size: x-large;
+      }
+      #editTaskInput::placeholder {
+        font-size: large;
+      }
+    
+      #saveText,
+      #cancelEditTask {
+        font-size: large;
+        width: 78em;
+      }
+      .textTask {
+        font-size: large;
+        margin-left: 1em;
+      }
+}
