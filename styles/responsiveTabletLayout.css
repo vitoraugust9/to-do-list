@@ -81,7 +81,7 @@
   }
   #labelName {
     font-size: x-large;
-    top: 105px;
+    top: 112px;
     left: 40px;
   }
   #userInputName:focus + #labelUserInput #labelName,

@@ -74,6 +74,9 @@
     word-wrap: break-word;
     width: 75vw;
   }
+  #userData p{
+    font-size: x-large;
+  }
   #userMenu {
     width: 40em;
   }
