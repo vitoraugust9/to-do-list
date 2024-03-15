@@ -97,11 +97,16 @@
   }
   footer{
     height: 9vh;
+    justify-content: center;
   }
   #userInputName{
     font-size: medium;
   }
 
+  .logos {
+    gap: 0;
+    margin-right: 0em;
+  }
   .deleteButton img,
   .buttonDone img{
     width: 2em;

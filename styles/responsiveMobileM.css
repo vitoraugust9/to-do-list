@@ -90,6 +90,7 @@
   }
   footer {
     height: 9vh;
+    justify-content: center;
   }
   #userInputName {
     font-size: large;
