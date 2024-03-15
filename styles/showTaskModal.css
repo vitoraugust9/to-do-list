@@ -11,6 +11,8 @@
   cursor: pointer;
   margin-top: 10px;
   font-size: x-large;
+
+  color: #000;
 }
 
 #closeModal {
@@ -30,6 +32,8 @@
   margin-top: 10px;
   font-size: x-large;
   outline: none;
+
+  color: #000;
 }
 
 

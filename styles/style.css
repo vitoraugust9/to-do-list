@@ -176,6 +176,8 @@ h1 {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-size: x-large;
+
+  color: #000;
 }
 
 .actionTasksButtons {
