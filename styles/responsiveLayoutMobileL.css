@@ -1,7 +1,7 @@
 @media screen and (min-width: 23.8125em) and (max-width: 26.5625em){
     #welcomeModal {
         width: 85vw;
-        height: 27vh;
+        height: 30vh;
         padding: 1em;
       }
       #welcomeMessage,
