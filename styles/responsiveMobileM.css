@@ -85,6 +85,10 @@
   #userData {
     width: 75vw;
   }
+  #userData p{
+    font-size: x-large;
+  }
+
   footer p {
     display: none;
   }
