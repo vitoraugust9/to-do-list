@@ -123,4 +123,8 @@
         font-size: large;
         margin-left: 1em;
       }
+      .logos {
+        gap: 0;
+        margin-right: 0em;
+      }
 }

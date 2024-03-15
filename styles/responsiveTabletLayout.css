@@ -124,4 +124,8 @@
     font-size: x-large;
     margin-left: 1.2em;
   }
+  .logos {
+    gap: 0;
+    margin-right: 0em;
+  }
 }
