@@ -121,7 +121,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
         ) {
           errorMessageContent.appendChild(ErrorMessage);
           inputName.style.borderColor = "#ff0000";
-          inputName.style.borderTopColor = "#ff0000";
         }
 
         setTimeout(() => {
